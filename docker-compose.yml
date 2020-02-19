@@ -8,7 +8,7 @@ services:
     networks:
       - backend
     volumes:
-      - ${PROJECT_ROOT}/:/var/www/html/
+      - ${PROJECT_ROOT}/:/var/www/html:delegated
     container_name: php
   apache:
     build:
@@ -24,7 +24,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ${PROJECT_ROOT}/:/var/www/html/
+      - ${PROJECT_ROOT}/:/var/www/html:delegated
     environment:
       TZ: "Europe/London"
     container_name: apache
@@ -34,7 +34,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-            - mysql:/var/lib/mysql
+            - mysql:/var/lib/mysql:delegated
     networks:
       - backend
     environment:
