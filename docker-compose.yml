@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   php:
+    image: php72:1
     build: 
       context: './php/'
       args:
@@ -11,6 +12,7 @@ services:
       - ${PROJECT_ROOT}/:/var/www/html:delegated
     container_name: php
   apache:
+    image: apache24:1
     build:
       context: './apache/'
       args:
