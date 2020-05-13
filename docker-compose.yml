@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   php:
-    image: php72:1
+    image: php73:1
     build: 
       context: './php/'
       args:
