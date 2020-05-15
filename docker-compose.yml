@@ -46,7 +46,7 @@ services:
       MYSQL_DATABASE: magento
       MYSQL_USER: magento
       MYSQL_PASSWORD: magento
-    container_name: mysql
+    container_name: magento-mysql
 networks:
   frontend:
   backend:

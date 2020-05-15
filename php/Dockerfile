@@ -4,6 +4,7 @@ LABEL maintainer="Cristian Pini"
 ENV TZ=Europe/London
 RUN apk update; \
 apk upgrade; \
+apk add --update nodejs npm; \
 apk add --no-cache tzdata freetype freetype-dev libxslt-dev libpng libjpeg libxml2-dev zlib libwebp-dev libpng-dev jpeg-dev icu-dev zlib-dev libzip-dev; \
 apk add --no-cache $PHPIZE_DEPS && pecl install xdebug-2.9.5;  \
 docker-php-ext-configure gd --with-png-dir=/usr/include/ \
@@ -13,6 +14,7 @@ docker-php-ext-configure gd --with-png-dir=/usr/include/ \
 && docker-php-ext-configure zip --with-libzip \
 && docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache \
 && docker-php-ext-enable xdebug \
+&& npm install -g grunt-cli \
 && curl -sS https://getcomposer.org/installer | php \
 && mv composer.phar /usr/local/bin/composer \
 && rm -rf /var/cache/* /tmp/* /var/tmp/* 
