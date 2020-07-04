@@ -2,3 +2,5 @@
 www/
 *.sql
 Magento2*
+*.dmp
+*.sql
